@@ -8,8 +8,10 @@ conjunction with:
 
 ## Install
 
+Note the use of `subtree`!
+
 ```
-st2 run packs.install packs=yetibot repo_url=https://github.com/devth/st2-yetibot-pack.git
+st2 run packs.install subtree=true packs=yetibot repo_url=https://github.com/devth/st2-yetibot-pack.git
 ```
 
 ## Config

@@ -1,0 +1,9 @@
+---
+name: yetibot
+description: A pack to listen to triggers and post to yetibot
+keywords:
+    - chatops
+    - yetibot
+version: 0.1
+author: devth
+email: trevorhartman@gmail.com

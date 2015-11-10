@@ -11,6 +11,5 @@ criteria:
 action:
   ref: core.http
   parameters:
-    method: POST
     body: "command=echo%20{{trigger.message}}&chat-source={{trigger.data.source_channel|urlencode}}"
     url: "{{system.yetibot_endpoint}}/api"

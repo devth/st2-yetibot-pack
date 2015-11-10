@@ -13,3 +13,5 @@ action:
   parameters:
     body: "command=echo%20{{trigger.message}}&chat-source={{trigger.data.source_channel|urlencode}}"
     url: "{{system.yetibot_endpoint}}/api"
+    headers: 'content-type=application/x-www-form-urlencoded'
+

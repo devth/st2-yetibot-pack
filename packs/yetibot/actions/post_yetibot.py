@@ -6,8 +6,8 @@ import requests
 import six
 from six.moves.urllib.parse import urljoin
 
-# from st2client.client import Client
-# from st2client.models.keyvalue import KeyValuePair
+from st2client.client import Client
+from st2client.models.keyvalue import KeyValuePair
 
 from st2actions.runners.pythonrunner import Action
 

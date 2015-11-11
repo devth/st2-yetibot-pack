@@ -20,7 +20,7 @@ class PostYetibot(Action):
 
     url = urljoin(endpoint, "/api")
 
-    self.logger.info(json.dump(trigger))
+    self.logger.info(json.dumps(trigger))
 
     chat_source = trigger["data"]["source_channel"]
 

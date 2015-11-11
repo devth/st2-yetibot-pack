@@ -19,7 +19,7 @@ class PostYetibot(Action):
     res = json.loads(result)
     self.logger.info(json.dumps(res))
 
-    text = message + ' ' res["stdout"]
+    text = message + ' ' + res["stdout"]
     if (res["failed"]):
       text +=  "\n" + res["stderr"]
 

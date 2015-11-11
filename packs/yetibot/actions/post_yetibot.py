@@ -18,12 +18,11 @@ __all__ = [
 class PostYetibot(Action):
   def run(self, trigger):
 
-    # client = Client(base_url='http://localhost')
-    # self._kvp
-    # kv = client.keys.get_by_name('yetibot_endpoint')
-    # endpoint = kv.value
+    client = Client(base_url='http://localhost')
+    kv = client.keys.get_by_name('yetibot_endpoint')
+    endpoint = kv.value
 
-    endpoint = self.client.keys.get_by_name(name='yetibot_endpoint')
+    # endpoint = self.client.keys.get_by_name(name='yetibot_endpoint')
 
     if not endpoint:
         raise ValueError('Missing "endpoint" config option')

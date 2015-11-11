@@ -1,0 +1,11 @@
+---
+  name: "post_yetibot"
+  runner_type: "run-python"
+  description: "Post an execution result to Yetibot"
+  enabled: true
+  entry_point: "post_yetibot.py"
+  parameters:
+    trigger:
+      type: "object"
+      description: "Trigger object"
+      required: true

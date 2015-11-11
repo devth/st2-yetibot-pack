@@ -5,6 +5,10 @@
   enabled: true
   entry_point: "post_yetibot.py"
   parameters:
+    endpoint:
+      type: "string"
+      description: "Yetibot endpoint"
+      required: true
     trigger:
       type: "object"
       description: "Trigger object"

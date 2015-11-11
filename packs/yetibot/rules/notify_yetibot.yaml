@@ -14,4 +14,4 @@ action:
     endpoint: "{{system.yetibot_endpoint}}"
     chat_source: "{{trigger.data.source_channel}}"
     result: "{{trigger.data.result|replace('|','.')}}"
-    message: "{{trigger.message}}"
+    message: "{{trigger.message}}\n"

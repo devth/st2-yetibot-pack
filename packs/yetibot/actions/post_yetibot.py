@@ -19,6 +19,9 @@ class PostYetibot(Action):
         raise ValueError('Missing "endpoint" config option')
 
     url = urljoin(endpoint, "/api")
+
+    self.logger.info(json.dump(trigger))
+
     chat_source = trigger.data.source_channel
 
     result = json.loads(trigger.data.result.replace("|", "."))

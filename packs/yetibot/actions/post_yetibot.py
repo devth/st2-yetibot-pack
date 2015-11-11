@@ -18,7 +18,7 @@ __all__ = [
 class PostYetibot(Action):
   def run(self, trigger):
 
-    client = Client(base_url='http://localhost')
+    client = Client(base_url='https://localhost')
     kv = client.keys.get_by_id('yetibot_endpoint')
     endpoint = kv.value
 

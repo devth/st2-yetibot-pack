@@ -13,30 +13,27 @@ __all__ = [
 ]
 
 class PostYetibot(Action):
-  def run(self, endpoint, trigger):
+  def run(self, endpoint, chat_source, result, message):
 
     if not endpoint:
         raise ValueError('Missing "endpoint" config option')
 
     url = urljoin(endpoint, "/api")
 
-    self.logger.info(json.dumps(trigger))
-
-    chat_source = trigger["data"]["source_channel"]
-
-    result = json.loads(trigger["data"]["result"].replace("|", "."))
+    res = json.loads(result)
+    self.logger.info(json.dumps(res))
 
     self.logger.info("post_yetibot")
-    self.logger.info(json.dumps(result))
 
-    command = 'echo ' + trigger["message"] + '\n' + result["stdout"]
-    if result["failed"]:
-      command  += "\n" + result["stderr"]
+    text = 'echo ' + message + '\n' + json.dumps(res)
+
+    # if result["failed"]:
+    #   command  += "\n" + result["stderr"]
 
     headers = {}
     headers['Content-Type'] = 'application/x-www-form-urlencoded'
 
-    data = {"chat-source": chat_source, "command": command}
+    data = {"chat-source": chat_source, "text": text}
     response = requests.post(url=url, headers=headers, data=data)
 
     if response.status_code == httplib.OK:

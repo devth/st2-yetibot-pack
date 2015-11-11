@@ -9,7 +9,16 @@
       type: "string"
       description: "Yetibot endpoint"
       required: true
-    trigger:
-      type: "object"
-      description: "Trigger object"
+    chat_source:
+      type: "string"
+      description: "Yetibot chat-source"
       required: true
+    result:
+      type: "string"
+      description: "JSON result of an action"
+      required: true
+    message:
+      type: "string"
+      description: "Additional message prefix to send"
+      required: false
+      default: ""

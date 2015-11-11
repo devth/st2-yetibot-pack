@@ -9,9 +9,9 @@ criteria:
     pattern: "yetibot"
     type: "equals"
 action:
-  ref: core.http
+  ref: yetibot.post_yetibot
   parameters:
-    method: POST
-    body: "chat-source={{trigger.data.source_channel|urlencode}}&text={{trigger.message}}\n{{trigger.data.result|replace('|','.')|urlencode}}"
-    url: "{{system.yetibot_endpoint}}/api"
-    headers: 'content-type=application/x-www-form-urlencoded'
+    endpoint: "{{system.yetibot_endpoint}}"
+    chat_source: "{{trigger.data.source_channel}}"
+    result: "{{trigger.data.result|replace('|','.')}}"
+    message: "{{trigger.message}}"

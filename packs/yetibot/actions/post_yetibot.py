@@ -7,6 +7,7 @@ import six
 from six.moves.urllib.parse import urljoin
 from st2client.client import Client
 from st2client.models import KeyValuePair
+
 from st2actions.runners.pythonrunner import Action
 
 __all__ = [
@@ -24,8 +25,10 @@ class PostYetibot(Action):
     chat_source = trigger.data.source_channel
 
     result = json.loads(trigger.data.result.replace("|", "·")
-    self.logger.info("post_yetibot")
-    self.logger.info(json.dumps(result))
+
+    # self.logger.info("post_yetibot")
+    # self.logger.info(json.dumps(result))
+
     command = 'echo ' + trigger.message + '\n' result["stdout"]
     if result["failed"]:
       command  += "\n" + result["stderr"]
@@ -37,7 +40,7 @@ class PostYetibot(Action):
     response = requests.post(url=url, headers=headers, data=data)
 
     if response.status_code == httplib.OK:
-      self.logger.info('Message successfully posted')
+      # self.logger.info('Message successfully posted')
     else:
-      self.logger.exception('Failed to post message: %s' % (response.text))
+      # self.logger.exception('Failed to post message: %s' % (response.text))
     return True

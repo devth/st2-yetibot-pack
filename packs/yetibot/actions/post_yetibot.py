@@ -22,14 +22,14 @@ class PostYetibot(Action):
 
     self.logger.info(json.dump(trigger))
 
-    chat_source = trigger.data.source_channel
+    chat_source = trigger["data"]["source_channel"]
 
-    result = json.loads(trigger.data.result.replace("|", "."))
+    result = json.loads(trigger["data"]["result"].replace("|", "."))
 
     self.logger.info("post_yetibot")
     self.logger.info(json.dumps(result))
 
-    command = 'echo ' + trigger.message + '\n' + result["stdout"]
+    command = 'echo ' + trigger["message"] + '\n' + result["stdout"]
     if result["failed"]:
       command  += "\n" + result["stderr"]
 

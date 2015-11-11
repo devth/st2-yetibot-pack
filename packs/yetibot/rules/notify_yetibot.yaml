@@ -11,4 +11,4 @@ criteria:
 action:
   ref: yetibot.post_yetibot
   parameters:
-    trigger: {{trigger}}
+    trigger: "{{trigger}}"

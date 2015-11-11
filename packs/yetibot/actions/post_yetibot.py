@@ -6,8 +6,8 @@ import requests
 import six
 from six.moves.urllib.parse import urljoin
 
-from st2client.client import Client
-from st2client.models import KeyValuePair
+# from st2client.client import Client
+# from st2client.models.keyvalue import KeyValuePair
 
 from st2actions.runners.pythonrunner import Action
 
@@ -17,9 +17,13 @@ __all__ = [
 
 class PostYetibot(Action):
   def run(self, trigger):
-    client = Client(base_url='http://localhost')
-    kv = client.keys.get_by_name('yetibot_endpoint')
-    endpoint = kv.value
+
+    # client = Client(base_url='http://localhost')
+    # self._kvp
+    # kv = client.keys.get_by_name('yetibot_endpoint')
+    # endpoint = kv.value
+
+    endpoint = self.client.keys.get_by_name(name='yetibot_endpoint')
 
     if not endpoint:
         raise ValueError('Missing "endpoint" config option')

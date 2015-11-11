@@ -5,6 +5,7 @@ import httplib
 import requests
 import six
 from six.moves.urllib.parse import urljoin
+
 from st2client.client import Client
 from st2client.models import KeyValuePair
 
@@ -16,6 +17,7 @@ __all__ = [
 
 class PostYetibot(Action):
   def run(self, trigger):
+    client = Client()
     endpoint = client.keys.get_by_name(name='yetibot_endpoint').value
 
     if not endpoint:
